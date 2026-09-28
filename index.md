@@ -5,7 +5,7 @@ title: About Me
 
 <div class="about-layout">
   <aside class="about-sidebar">
-    <img class="headshot" src="{{ '/assets/images/headshot.svg' | relative_url }}" alt="Placeholder headshot">
+    <img class="headshot" src="{{ '/assets/images/headshot.jpg' | relative_url }}" alt="Placeholder headshot">
 
     <div class="contact-icons">
       <a class="icon-badge" href="mailto:{{ site.author.email }}" title="Email" aria-label="Email">
