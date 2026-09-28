@@ -5,7 +5,7 @@ title: "Andy B. Zhang"
 tagline: "Developer, writer, maker"
 description: >-
   Personal website and blog — projects, writing, and notes.
-url: "https://andybzhang.github.io"   # base hostname & protocol, no trailing slash
+url: "https://22andyz.github.io"   # base hostname & protocol, no trailing slash
 baseurl: ""                              # subpath, e.g. "/repo-name" for project pages
 
 # ------------------------------------------------
