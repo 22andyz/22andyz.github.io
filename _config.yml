@@ -1,0 +1,71 @@
+# ------------------------------------------------
+# Site settings
+# ------------------------------------------------
+title: "Andy B. Zhang"
+tagline: "Developer, writer, maker"
+description: >-
+  Personal website and blog — projects, writing, and notes.
+url: "https://andybzhang.github.io"   # base hostname & protocol, no trailing slash
+baseurl: ""                              # subpath, e.g. "/repo-name" for project pages
+
+# ------------------------------------------------
+# Author / social
+# ------------------------------------------------
+author:
+  name: "Andy B. Zhang"
+  email: "zhang.17477@osu.edu"
+  github: "22andyz"
+  # twitter: "yourusername"
+  linkedin: "andy-zhang-73648b29a"
+
+# ------------------------------------------------
+# Build settings
+# ------------------------------------------------
+markdown: kramdown
+theme: null                # we're using our own layouts, not a gem-based theme
+permalink: /photography/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+sass:
+  style: compressed
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+  other:
+    output: true
+    permalink: /other/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      image: "/assets/images/preview-icon.svg"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+      type: "other"
+    values:
+      layout: "other"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - node_modules

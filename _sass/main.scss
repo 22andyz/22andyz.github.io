@@ -1,0 +1,433 @@
+// ------------------------------------------------
+// Variables — deep space palette
+// ------------------------------------------------
+$bg:               #05060f;
+$card-bg:          #10132a;
+$border-color:     #282c52;
+$text-color:       #e8e9f3;
+$muted-color:      #9497b8;
+$accent:           #7dd3fc;       // nebula cyan
+$accent-2:         #924fd9;       // nebula ember (shifted from violet toward red/orange)
+$accent-glow:      rgba(125, 211, 252, 0.35);
+
+$sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+$mono: "SF Mono", Consolas, Monaco, monospace;
+
+$max-width: none;   // content spans the full page
+$gutter:    48px;   // breathing room at the edges
+
+// ------------------------------------------------
+// Base
+// ------------------------------------------------
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: $sans;
+  color: $text-color;
+  background: $bg;
+  line-height: 1.7;
+  font-size: 20px;
+
+  // starfield
+  background-image:
+    radial-gradient(1.8px 1.8px at 20px 30px, #fff, transparent),
+    radial-gradient(3.8px 3.8px at 90px 120px, #fff, transparent),
+    radial-gradient(2.6px 2.6px at 160px 60px, #cdd, transparent),
+    radial-gradient(1.8px 1.8px at 230px 180px, #fff, transparent),
+    radial-gradient(1.8px 1.8px at 300px 40px, #fff, transparent),
+    radial-gradient(3.6px 3.6px at 340px 220px, #cdd, transparent),
+    radial-gradient(1.8px 1.8px at 400px 100px, #fff, transparent),
+    radial-gradient(1.8px 1.8px at 60px 200px, #fff, transparent),
+    radial-gradient(3.2px 3.2px at 480px 160px, #cdd, transparent),
+    radial-gradient(1.8px 1.8px at 40px 250px, #fff, transparent),
+    radial-gradient(1.8px 1.8px at 70px 370px, #fff, transparent),
+    radial-gradient(2.6px 2.6px at 170px 310px, #cdd, transparent),
+    radial-gradient(3.8px 3.8px at 210px 430px, #fff, transparent),
+    radial-gradient(1.8px 1.8px at 270px 270px, #fff, transparent),
+    radial-gradient(2.6px 2.6px at 310px 480px, #cdd, transparent),
+    radial-gradient(1.8px 1.8px at 380px 350px, #fff, transparent),
+    radial-gradient(2.8px 2.8px at 70px 440px, #fff, transparent),
+    radial-gradient(3.2px 3.2px at 450px 410px, #cdd, transparent);
+  background-repeat: repeat;
+  background-size: 520px 520px;
+  background-attachment: fixed;
+}
+
+.wrapper {
+  width: 65%;
+  margin: 0 auto;
+  padding: 0 $gutter;
+}
+
+// Long-form text (post/project body copy) stays capped so paragraphs
+// don't stretch edge-to-edge on wide screens, while headers/hero/cards
+// still span the full page width via .wrapper above.
+.post-content,
+.hero p {
+  max-width: 76ch;
+}
+
+a {
+  color: $accent;
+  text-decoration: none;
+  transition: color 0.15s ease;
+  &:hover { color: $accent-2; text-decoration: underline; }
+}
+
+h1, h2, h3, h4 {
+  font-family: $sans;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2.4em; margin-top: 0.2em; }
+h2 { font-size: 1.7em; }
+h3 { font-size: 1.35em; }
+
+p, ul, ol, blockquote { margin: 0 0 1.2em; }
+
+code {
+  font-family: $mono;
+  font-size: 0.85em;
+  background: $card-bg;
+  border: 1px solid $border-color;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  color: $accent;
+}
+
+pre {
+  background: $card-bg;
+  border: 1px solid $border-color;
+  padding: 1em;
+  overflow-x: auto;
+  border-radius: 10px;
+  code { background: none; border: none; padding: 0; color: inherit; }
+}
+
+blockquote {
+  border-left: 3px solid $accent;
+  padding-left: 1em;
+  color: $muted-color;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid $border-color;
+  margin: 2.5em 0;
+}
+
+// ------------------------------------------------
+// Header / nav — sticky, blurred
+// ------------------------------------------------
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(5, 6, 15, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid $border-color;
+  padding: 32px 0;
+  margin-bottom: 64px;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+.site-title {
+  font-weight: 800;
+  font-size: 1.6em;
+  color: $text-color;
+  background: linear-gradient(90deg, $accent, $accent-2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  &:hover { -webkit-text-fill-color: transparent; text-decoration: none; opacity: 0.85; }
+}
+
+.site-nav {
+  font-size: 1.1em;
+  font-weight: 500;
+
+  a {
+    color: $muted-color;
+    margin-left: 32px;
+    &:first-child { margin-left: 0; }
+    &:hover { color: $accent; text-decoration: none; }
+  }
+}
+
+// ------------------------------------------------
+// Hero (homepage)
+// ------------------------------------------------
+.hero {
+  padding: 24px 0 40px;
+  border-bottom: 1px solid $border-color;
+  margin-bottom: 40px;
+
+  .hero-eyebrow {
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: $accent;
+    font-weight: 600;
+    margin-bottom: 0.6em;
+  }
+
+  h1 {
+    margin-top: 0;
+    font-size: 2.8em;
+    background: linear-gradient(120deg, $text-color 40%, $accent 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    color: $muted-color;
+    font-size: 1.05em;
+    max-width: 60ch;
+  }
+}
+
+// ------------------------------------------------
+// Section headings on index
+// ------------------------------------------------
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 3em;
+
+  h2 { margin: 0; }
+
+  .section-link {
+    font-size: 0.85em;
+    color: $muted-color;
+    &:hover { color: $accent; }
+  }
+}
+
+// ------------------------------------------------
+// Post / project cards
+// ------------------------------------------------
+.card-grid {
+  list-style: none;
+  padding: 0;
+  margin: 1.2em 0 0;
+  display: grid;
+  gap: 14px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: $card-bg;
+  border: 1px solid $border-color;
+  border-radius: 12px;
+  padding: 18px 20px;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    border-color: $accent;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -12px $accent-glow;
+  }
+
+  .card-media-link {
+    flex: 0 0 68px;
+    display: block;
+    line-height: 0;
+  }
+
+  .card-media {
+    flex: 0 0 68px;
+    width: 68px;
+    height: 68px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid $border-color;
+  }
+
+  .card-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  a.card-title {
+    font-weight: 700;
+    font-size: 1.08em;
+    color: $text-color;
+    &:hover { color: $accent; text-decoration: none; }
+  }
+}
+
+@media (max-width: 500px) {
+  .card { gap: 12px; padding: 14px 16px; }
+  .card .card-media,
+  .card .card-media-link { flex-basis: 52px; width: 52px; height: 52px; }
+}
+
+.post-date {
+  font-size: 0.8em;
+  color: $muted-color;
+  display: block;
+  margin-bottom: 0.35em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.post-excerpt {
+  font-size: 0.92em;
+  color: $muted-color;
+  margin: 0.5em 0 0;
+}
+
+// ------------------------------------------------
+// Single post / project
+// ------------------------------------------------
+.post-header { margin-bottom: 2em; }
+.post-title { margin-top: 0; }
+
+.post-meta {
+  font-size: 0.85em;
+  color: $muted-color;
+
+  .tag {
+    background: $card-bg;
+    border: 1px solid $border-color;
+    border-radius: 20px;
+    padding: 3px 12px;
+    margin-right: 6px;
+    font-size: 0.9em;
+    color: $accent;
+  }
+}
+
+.post-footer {
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 1px solid $border-color;
+  font-size: 0.9em;
+}
+
+// ------------------------------------------------
+// Footer
+// ------------------------------------------------
+.site-footer {
+  border-top: 1px solid $border-color;
+  margin-top: 72px;
+  padding: 32px 0;
+  font-size: 0.85em;
+  color: $muted-color;
+
+  p { margin: 0.3em 0; }
+
+  .social-links a {
+    margin-right: 14px;
+    color: $muted-color;
+    &:hover { color: $accent; text-decoration: none; }
+  }
+}
+
+// ------------------------------------------------
+// About page — sidebar with headshot + contact icons
+// ------------------------------------------------
+.about-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+.about-sidebar {
+  flex: 0 0 200px;
+  text-align: center;
+  padding-top: 0.2em;
+}
+
+.headshot {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid $accent;
+  box-shadow: 0 0 28px $accent-glow;
+  display: block;
+  margin: 0 auto 18px;
+}
+
+.contact-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icon-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: $card-bg;
+  border: 1px solid $border-color;
+  color: $muted-color;
+  font-size: 0.8em;
+  font-weight: 700;
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+
+  svg { width: 18px; height: 18px; }
+
+  &:hover {
+    border-color: $accent;
+    color: $accent;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px -8px $accent-glow;
+  }
+}
+
+.about-body {
+  flex: 1;
+  min-width: 0;
+
+  h1:first-child { margin-top: 0.2em; }
+}
+
+@media (max-width: 700px) {
+  .about-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-body { width: 100%; }
+}
+
+// ------------------------------------------------
+// Responsive
+// ------------------------------------------------
+@media (max-width: 1100px) {
+  .wrapper { width: 85%; }
+}
+
+@media (max-width: 700px) {
+  .wrapper { width: 100%; padding: 0 24px; }
+  .site-header { padding: 20px 0; }
+  .site-title { font-size: 1.3em; }
+  .site-nav { font-size: 0.95em; }
+  .site-nav a { margin-left: 16px; }
+  body { font-size: 17px; }
+  .hero h1 { font-size: 2.1em; }
+}

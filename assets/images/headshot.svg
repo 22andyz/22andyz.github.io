@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10132a"/>
+      <stop offset="100%" stop-color="#1b2044"/>
+    </linearGradient>
+    <linearGradient id="fig" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7dd3fc"/>
+      <stop offset="100%" stop-color="#f27a5c"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="150" cy="150" r="150" fill="url(#bg)"/>
+
+  <!-- scattered stars -->
+  <circle cx="45" cy="60" r="1.6" fill="#ffffff" opacity="0.8"/>
+  <circle cx="250" cy="80" r="1.2" fill="#ffffff" opacity="0.6"/>
+  <circle cx="70" cy="230" r="1.4" fill="#ffffff" opacity="0.7"/>
+  <circle cx="230" cy="220" r="1.8" fill="#ffffff" opacity="0.8"/>
+  <circle cx="150" cy="40" r="1.2" fill="#ffffff" opacity="0.6"/>
+
+  <!-- simple generic avatar silhouette -->
+  <circle cx="150" cy="118" r="52" fill="url(#fig)" opacity="0.9"/>
+  <path d="M60 265 C60 190 240 190 240 265 Z" fill="url(#fig)" opacity="0.9"/>
+</svg>
